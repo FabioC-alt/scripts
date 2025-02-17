@@ -1,0 +1,44 @@
+* {
+    font-family: "SourceCodePro Medium", sans-serif;
+    font-size: 10px;
+}
+
+window#waybar {
+    background: #282c34;
+    color: #ffffff;
+    border-bottom: 1px solid #61afef;
+}
+
+#workspaces {
+    margin-left: 2px;
+    padding: 2px;
+}
+
+#workspaces button {
+    padding: 1px 4px;
+    border-radius: 5px;
+    background: #3e4451;
+    color: #ffffff;
+    border: none;
+}
+
+#workspaces button.active {
+    background: #61afef;
+    color: #ffffff;
+}
+
+#clock, #cpu, #memory, #battery, #network {
+    padding: 0 5px;
+}
+
+#battery.charging {
+    color: #98c379;
+}
+
+#battery.warning {
+    color: #e5c07b;
+}
+
+#battery.critical {
+    color: #e06c75;
+}
