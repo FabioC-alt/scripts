@@ -1,0 +1,47 @@
+* {
+    font-family: "Source Code Pro Medium", monospace;
+    font-size: 12px;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border-radius: 10px;
+}
+
+window {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #89b4fa;
+    background-color: #1e1e2e;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0);
+}
+
+#input {
+    border: none;
+    padding: 10px;
+    background-color: #313244;
+    color: #cdd6f4;
+    border-radius: 8px;
+}
+
+#inner-box {
+    margin-top: 4px;
+    background-color: #1e1e2e;
+}
+
+#outer-box {
+    margin: 4px;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#entry {
+    padding: 3px;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+#entry:selected {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+}
