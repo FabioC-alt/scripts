@@ -3,7 +3,8 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "battery", "network"],
+    "modules-right": ["bluetooth", "cpu", "memory", "battery", "network"],
+   
 
     "hyprland/workspaces": {
         "format": "{name}",
