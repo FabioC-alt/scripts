@@ -45,4 +45,7 @@ git config --global user.name "FabioC-alt"
 echo 'Configuring Network manager'
 sudo systemctl enable NetworkManager
 
+echo 'Setting timedatectl'
+sudo timedatectl set-timezone Europe/Rome
+
 echo "Successfully Installed all components"
