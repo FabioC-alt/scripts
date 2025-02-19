@@ -2,6 +2,7 @@
 
 # Lista dei pacchetti
 packages='
+    ttf-font-awesome
     stow
     wl-clipboard
     grim
