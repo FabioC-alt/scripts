@@ -41,5 +41,7 @@ echo 'Configuring Github Credentials'
 git config --global user.email "fabiociraci41@gmail.com"
 git config --global user.name "FabioC-alt"
 
+echo 'Configuring Network manager'
+sudo systemctl enable NetworkManager
 
 echo "Successfully Installed all components"
