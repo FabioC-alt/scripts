@@ -1,8 +1,0 @@
-wl-clipboard
-grim
-slurp
-hyprlock
-hyprland
-hypridle
-waybar
-nano 
