@@ -42,4 +42,4 @@ git config --global user.email "fabiociraci41@gmail.com"
 git config --global user.name "FabioC-alt"
 
 
-echo "Script completato con successo!"
+echo "Successfully Installed all components"
