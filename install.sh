@@ -18,6 +18,7 @@ packages='
     mcfly
     kitty
     firefox
+    nautilus
 '
 
 echo 'Installing Packages'
