@@ -18,7 +18,9 @@ packages='
     mcfly
     kitty
     firefox
-    nautilus
+    nautilus 
+    wofi
+    dunst
 '
 
 echo 'Installing Packages'
@@ -28,11 +30,13 @@ echo 'Creating Config Folders'
 mkdir -p $HOME/.config/hypr
 mkdir -p $HOME/.config/waybar
 mkdir -p $HOME/.config/wofi
+mkdir -p $HOME/.config/dunst
 
 echo 'Stowing Folders'
 sudo stow -t $HOME/.config/hypr hypr
 sudo stow -t $HOME/.config/waybar waybar
 sudo stow -t $HOME/.config/wofi wofi
+sudo stow -t $HOME/.config/dunst dunst
 
 echo 'Configuring bashrc'
 cp bashrc ~/.bashrc

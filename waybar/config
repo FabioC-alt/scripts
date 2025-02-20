@@ -3,8 +3,14 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["bluetooth", "cpu", "memory", "battery", "network"],
-   
+    "modules-right": ["pulseaudio","bluetooth", "cpu", "memory", "battery", "network"],
+
+    "pulseaudio":{
+	"format": "{volume}% {icon}  ",
+	"format-muted": " ",
+	"format-icons":[""," "," "],
+	"scroll-step":5
+    },
 
     "hyprland/workspaces": {
         "format": "{name}",
@@ -16,23 +22,23 @@
     },
 
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-charging": "⚡ {capacity}%",
-        "format-full": "🔋 {capacity}%",
+        "format": "{capacity}% {icon} ",
+        "format-charging": "⚡ {capacity}% ",
+        "format-full": "🔋 {capacity}%  ",
         "format-icons": ["", "", "", "", ""]
     },
 
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-wifi": " {essid} ({signalStrength}%) ",
+        "format-ethernet": " {ipaddr}/{cidr} ",
         "format-disconnected": "⚠ Disconnected"
     },
 
     "cpu": {
-        "format": " {usage}%"
+        "format": " {usage}% "
     },
 
     "memory": {
-        "format": " {used} MiB"
+        "format": " {used} MiB "
     }
 }
