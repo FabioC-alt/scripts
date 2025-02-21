@@ -59,10 +59,19 @@ echo 'Setting timedatectl'
 sudo timedatectl set-timezone Europe/Rome
 
 
+if [ "$docker_mode" -eq 1]; then
+
+   echo "Installing Docker"
+   sudo pacman -S $dev_mode_packages
+else
+   echo "Docker mode off"
+
+fi
+
 # Check if the variable is set to 1
 if [ "$var" -eq 1 ]; then
   echo "Cloning repositories..."
-  git clone https://github.com/FabioC-alt/AnalisiTrafficoBologna.gitt
+  git clone https://github.com/FabioC-alt/AnalisiTrafficoBologna.git
   # Add more repositories as needed
 else
   echo "Variable is not set to 1. Skipping repository cloning."
