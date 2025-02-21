@@ -1,6 +1,7 @@
 #!/bin/bash
 
 docker_mode = 1
+cloning_repo = 1
 
 # Lista dei pacchetti
 packages='
@@ -71,7 +72,7 @@ else
 fi
 
 # Check if the variable is set to 1
-if [ "$var" -eq 1 ]; then
+if [ "$cloning_repo" -eq 1 ]; then
   echo "Cloning repositories..."
   git clone https://github.com/FabioC-alt/AnalisiTrafficoBologna.git
   # Add more repositories as needed
