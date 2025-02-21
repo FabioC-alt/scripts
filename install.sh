@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker_mode = 1
+
 # Lista dei pacchetti
 packages='
     ttf-font-awesome
@@ -21,6 +23,10 @@ packages='
     nautilus 
     wofi
     dunst
+'
+
+dev_mode_packages = '
+    docker   
 '
 
 echo 'Installing Packages'
@@ -52,4 +58,18 @@ sudo systemctl enable NetworkManager
 echo 'Setting timedatectl'
 sudo timedatectl set-timezone Europe/Rome
 
+
+# Check if the variable is set to 1
+if [ "$var" -eq 1 ]; then
+  echo "Cloning repositories..."
+  git clone https://github.com/FabioC-alt/AnalisiTrafficoBologna.gitt
+  # Add more repositories as needed
+else
+  echo "Variable is not set to 1. Skipping repository cloning."
+fi
+
+
+
 echo "Successfully Installed all components"
+
+
