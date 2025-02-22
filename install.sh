@@ -1,7 +1,7 @@
 #!/bin/bash
 
-docker_mode = 1
-cloning_repo = 1
+docker_mode=true
+cloning_repo=true
 
 # Lista dei pacchetti
 packages='
@@ -26,7 +26,7 @@ packages='
     dunst
 '
 
-dev_mode_packages = '
+dev_mode_packages='
     docker   
 '
 
@@ -62,19 +62,20 @@ echo 'Setting timedatectl'
 sudo timedatectl set-timezone Europe/Rome
 
 
-if [ "$docker_mode" -eq 1]; then
+if [ $docker_mode = true ]; then
 
    echo "Installing Docker"
-   sudo pacman -S $dev_mode_packages
+   sudo pacman -S $dev_mode_packages --noconfirm
 else
    echo "Docker mode off"
 
 fi
 
 # Check if the variable is set to 1
-if [ "$cloning_repo" -eq 1 ]; then
+if [ $cloning_repo = true ]; then
   echo "Cloning repositories..."
-  git clone https://github.com/FabioC-alt/AnalisiTrafficoBologna.git
+  cd /home/fabioc/Documents
+  git clone https://github.com/FabioC-alt/AnalisiTrafficoBologna
   # Add more repositories as needed
 else
   echo "Variable is not set to 1. Skipping repository cloning."
