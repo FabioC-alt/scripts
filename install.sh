@@ -84,7 +84,8 @@ else
   echo "Variable is not set to 1. Skipping repository cloning."
 fi
 
-
+echo 'Config tldr'
+tldr --update
 
 echo "Successfully Installed all components"
 
