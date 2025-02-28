@@ -24,6 +24,7 @@ packages='
     nautilus 
     wofi
     dunst
+    tealdeer
 '
 
 dev_mode_packages='
