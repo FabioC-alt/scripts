@@ -61,6 +61,8 @@ sudo systemctl enable NetworkManager
 echo 'Setting timedatectl'
 sudo timedatectl set-timezone Europe/Rome
 
+echo 'Setting bluetooth'
+sudo systemctl enable bluetooth
 
 if [ $docker_mode = true ]; then
 
