@@ -11,6 +11,7 @@ git add .
 git commit -m "$commit_message"
 
 # Push changes to the current branch on GitHub
-git push origin $(git rev-parse --abbrev-ref HEAD)
+git push
+#git push origin $(git rev-parse --abbrev-ref HEAD)
 
 echo "Changes pushed to GitHub with commit message: $commit_message"

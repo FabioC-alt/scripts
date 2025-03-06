@@ -5,6 +5,7 @@ cloning_repo=true
 
 # Lista dei pacchetti
 packages='
+    github-cli
     ttf-font-awesome
     stow
     wl-clipboard
