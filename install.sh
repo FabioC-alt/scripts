@@ -5,6 +5,7 @@ cloning_repo=true
 
 # Lista dei pacchetti
 packages='
+    bash-completion
     github-cli
     ttf-font-awesome
     stow
@@ -89,5 +90,4 @@ echo 'Config tldr'
 tldr --update
 
 echo "Successfully Installed all components"
-
 
