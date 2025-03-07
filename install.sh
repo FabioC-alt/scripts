@@ -27,6 +27,7 @@ packages='
     wofi
     dunst
     tealdeer
+    byobu
 '
 
 dev_mode_packages='
