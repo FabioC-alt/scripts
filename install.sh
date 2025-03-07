@@ -71,6 +71,7 @@ if [ $docker_mode = true ]; then
 
    echo "Installing Docker"
    sudo pacman -S $dev_mode_packages --noconfirm
+   curl -sS https://webinstall.dev/k9s | bash
 else
    echo "Docker mode off"
 
