@@ -27,15 +27,18 @@ packages='
     wofi
     dunst
     tealdeer
-    byobu
+    zellij
+    lazygit
 '
 
 dev_mode_packages='
-    docker   
+    docker 
+    lazydocker  
 '
 
 echo 'Installing Packages'
 sudo pacman -S $packages --noconfirm
+sudo pacman -Syu
 
 echo 'Creating Config Folders'
 mkdir -p $HOME/.config/hypr

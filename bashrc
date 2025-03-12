@@ -15,6 +15,7 @@ alias ll="ls -l"
 alias s="sudo"
 alias k="kubectl"
 alias z="zellij"
+alias lz="lazygit"
 
 # Programs
 
