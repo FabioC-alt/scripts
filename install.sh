@@ -29,6 +29,7 @@ packages='
     tealdeer
     zellij
     lazygit
+    brightnessctl
 '
 
 dev_mode_packages='
