@@ -18,5 +18,4 @@ alias z="zellij"
 
 # Programs
 
-source < (kubectl completion bash)
 eval "$(mcfly init bash)"
