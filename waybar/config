@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-center": ["clock","custom/weather"],
     "modules-right": ["pulseaudio","bluetooth", "cpu", "memory", "battery", "network"],
 
     "pulseaudio":{
@@ -41,5 +41,14 @@
 
     "memory": {
         "format": " {used} MiB "
+    },
+
+    
+    "custom/weather": {
+	"format": "  {}",
+        "interval": 600,
+        "format": "{}",
+        "exec": "curl -s 'wttr.in/?format=3'"
     }
+
 }
