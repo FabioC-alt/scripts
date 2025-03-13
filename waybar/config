@@ -14,7 +14,8 @@
 
     "hyprland/workspaces": {
         "format": "{name}",
-        "all-outputs": true
+        "all-outputs": true,
+	"show-special": true
     },
 
     "clock": {

@@ -1,14 +1,17 @@
+@import "frappe.css";
+
+#waybar {
+    background: @base;
+    color: @text;
+    border-bottom: 1px solid @blue;
+}
+
 * {
     font-family: "SourceCodePro Medium", sans-serif;
     font-size: 10px;
 }
 
-window#waybar {
-    background: #282c34;
-    color: #ffffff;
-    border-bottom: 1px solid #61afef;
-}
-
+/* Workspaces */
 #workspaces {
     margin-left: 2px;
     padding: 2px;
@@ -17,28 +20,46 @@ window#waybar {
 #workspaces button {
     padding: 1px 4px;
     border-radius: 5px;
-    background: #3e4451;
-    color: #ffffff;
+    background: @surface0;
+    color: @text;
     border: none;
 }
 
 #workspaces button.active {
-    background: #61afef;
-    color: #ffffff;
+    background: @blue;
+    color: @text;
 }
 
+/* Modules */
 #clock, #cpu, #memory, #battery, #network {
     padding: 0 5px;
+    color: @subtext1;
+}
+
+/* Battery status */
+#battery {
+    color: @text;
 }
 
 #battery.charging {
-    color: #98c379;
+    color: @green;
 }
 
 #battery.warning {
-    color: #e5c07b;
+    color: @yellow;
 }
 
 #battery.critical {
-    color: #e06c75;
+    color: @red;
 }
+
+/* Network */
+#network.disconnected {
+    color: @maroon;
+}
+
+/* Apply teal color */
+#cpu, #memory {
+    color: @teal;
+}
+
