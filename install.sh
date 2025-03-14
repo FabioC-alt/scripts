@@ -30,6 +30,8 @@ packages='
     zellij
     lazygit
     brightnessctl
+    ncspot
+    rangert
 '
 
 dev_mode_packages='
