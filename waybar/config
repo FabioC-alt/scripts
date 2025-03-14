@@ -49,6 +49,13 @@
         "interval": 600,
         "format": "{}",
         "exec": "curl -s 'wttr.in/?format=3'"
-    }
+    },
+
+    "bluetooth": {
+    	
+	"format": " {status}",
+	"format-disabled": "not device connected",
+	"format-connected": " {device_alias}" 
+    } 
 
 }
