@@ -32,7 +32,8 @@ packages='
     brightnessctl
     ncspot
     ranger
-'
+    libnotify
+    '
 
 dev_mode_packages='
     docker 
