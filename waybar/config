@@ -54,7 +54,7 @@
     "bluetooth": {
     	
 	"format": " {status}",
-	"format-disabled": "not device connected",
+	"format-disabled": " no device connected",
 	"format-connected": " {device_alias}" 
     },
 
