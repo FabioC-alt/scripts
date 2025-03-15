@@ -31,12 +31,11 @@ packages='
     lazygit
     brightnessctl
     ncspot
-    rangert
+    ranger
 '
 
 dev_mode_packages='
     docker 
-    lazydocker  
 '
 
 echo 'Installing Packages'
