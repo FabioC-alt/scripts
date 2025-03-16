@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces","custom/player"],
     "modules-center": ["clock","custom/weather"],
     "modules-right": ["pulseaudio","bluetooth", "cpu", "memory", "battery", "network"],
 
@@ -82,5 +82,12 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
+    },
+
+    "custom/player":{
+	"exec": "echo ' 🎵 '$(playerctl metadata --format '{{artist}} - {{title}}')",
+	"interval": 1, 
+	"on-click": "playerctl play-pause"
     }
+
 }
