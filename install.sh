@@ -30,10 +30,10 @@ packages='
     zellij
     lazygit
     brightnessctl
-    ncspot
     ranger
     libnotify
-    '
+    xdg-desktop-portal-hyprland 
+'
 
 dev_mode_packages='
     docker 
@@ -79,6 +79,10 @@ if [ $docker_mode = true ]; then
    echo "Installing Docker"
    sudo pacman -S $dev_mode_packages --noconfirm
    curl -sS https://webinstall.dev/k9s | bash
+   # Adding Docker to user group
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+
 else
    echo "Docker mode off"
 
@@ -97,5 +101,4 @@ fi
 echo 'Config tldr'
 tldr --update
 
-echo "Successfully Installed all components"
-
+echo "Successfully Installed all components, reboot to start"

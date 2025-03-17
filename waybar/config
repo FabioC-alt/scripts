@@ -6,7 +6,7 @@
     "modules-right": ["pulseaudio","bluetooth", "cpu", "memory", "battery", "network"],
 
     "pulseaudio":{
-	"format": "{volume}% {icon}  ",
+	"format": "{volume}% {icon}     ",
 	"format-muted": " ",
 	"format-icons":[""," "," "],
 	"scroll-step":5
@@ -54,7 +54,7 @@
     "bluetooth": {
     	
 	"format": " {status}",
-	"format-disabled": " no device connected",
+	"format-disabled": " bluetooth is off",
 	"format-connected": " {device_alias}" 
     },
 
