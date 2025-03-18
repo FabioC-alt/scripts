@@ -1,15 +1,19 @@
 @import "frappe.css";
 
+* {
+    font-family: "Source Code VF", "Source Code Pro", monospace;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+
+
 #waybar {
     background: @base;
     color: @text;
     border-bottom: 1px solid @blue;
 }
 
-* {
-    font-family: "SourceCodePro Medium", sans-serif;
-    font-size: 10px;
-}
 
 /* Workspaces */
 #workspaces {

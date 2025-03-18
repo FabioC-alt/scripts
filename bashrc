@@ -17,7 +17,6 @@ alias k="kubectl"
 alias z="zellij"
 alias lz="lazygit"
 alias b="btop --tty_on"
-alias music="kitty --class ncspot ncspot & disown"
 
 # Programs
 
