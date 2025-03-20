@@ -5,34 +5,35 @@ cloning_repo=true
 
 # Lista dei pacchetti
 packages='
-    bash-completion
-    github-cli
-    ttf-font-awesome
-    stow
-    wl-clipboard
-    grim
-    slurp
-    hyprlock
-    hyprland
-    hypridle
-    waybar
-    nano
-    bluez
-    bluez-utils
-    blueman
-    mcfly
-    kitty
-    firefox
-    nautilus 
-    wofi
-    dunst
-    tealdeer
-    zellij
-    lazygit
-    brightnessctl
-    ranger
-    libnotify
-    xdg-desktop-portal-hyprland 
+	bash-completion
+    	github-cli
+    	ttf-font-awesome
+    	stow
+    	wl-clipboard
+    	grim
+	slurp
+    	hyprlock
+    	hyprland
+    	hypridle
+    	waybar
+    	nano
+    	bluez
+    	bluez-utils
+    	blueman
+    	mcfly
+    	kitty
+    	firefox
+    	nautilus 
+    	wofi
+    	dunst
+    	tealdeer
+    	zellij
+    	lazygit
+    	brightnessctl
+    	ranger
+    	libnotify
+    	xdg-desktop-portal-hyprland 
+    	hyprpaper
 '
 
 dev_mode_packages='
