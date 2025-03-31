@@ -16,6 +16,7 @@ alias s="sudo"
 alias k="kubectl"
 alias z="zellij"
 alias lz="lazygit"
+alias ld="lazydocker"
 alias b="btop --tty_on"
 
 # Programs
