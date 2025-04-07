@@ -56,6 +56,16 @@ echo 'Configuring Github Credentials'
 git config --global user.email "fabiociraci41@gmail.com"
 git config --global user.name "FabioC-alt"
 
+echo 'Configuring Systemd Timers'
+sudo cp systemd/* /etc/systemd/user/
+
+echo 'Configuring Auto-git'
+systemctl --user enable gitPull.timer
+systemctl --user enable gitSync.timer
+
+systemctl --user start gitPull.timer
+systemctl --user start gitSync.timer
+
 echo 'Configuring Network manager'
 sudo systemctl enable NetworkManager
 
