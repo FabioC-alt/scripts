@@ -1,6 +1,6 @@
 PARENT_DIR="$HOME/Documents"
 
-notify-send "Git Auto Push" "🔄push for repos in: $PARENT_DIR"
+notify-send "Git Auto Push" "🔄 push for repos in: $PARENT_DIR"
 
 for dir in "$PARENT_DIR"/*/; do
   if [ -d "$dir/.git" ]; then
