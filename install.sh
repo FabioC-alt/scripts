@@ -52,11 +52,7 @@ mkdir -p $HOME/.config/dunst
 mkdir -p $HOME/.config/kitty
 
 echo 'Stowing Folders'
-sudo stow -t $HOME/.config/hypr /hypr
-sudo stow -t $HOME/.config/waybar waybar
-sudo stow -t $HOME/.config/wofi wofi
-sudo stow -t $HOME/.config/dunst dunst
-sudo stow -t $HOME/.config/kitty kitty
+sudo stow -t $HOME/.configi/ -D etc 
 
 echo 'Configuring bashrc'
 cp configs/bashrc ~/.bashrc
