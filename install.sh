@@ -44,15 +44,9 @@ echo 'Installing Packages'
 sudo pacman -S $packages --noconfirm
 sudo pacman -Syu
 
-echo 'Creating Config Folders'
-mkdir -p $HOME/.config/hypr
-mkdir -p $HOME/.config/waybar
-mkdir -p $HOME/.config/wofi
-mkdir -p $HOME/.config/dunst
-mkdir -p $HOME/.config/kitty
 
 echo 'Stowing Folders'
-sudo stow -t $HOME/.configi/ -D etc 
+stow -t $HOME/.config  etc 
 
 echo 'Configuring bashrc'
 cp configs/bashrc ~/.bashrc
