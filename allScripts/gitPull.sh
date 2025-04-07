@@ -1,9 +1,4 @@
-#!/bin/bash
-
-# Set the parent directory
-PARENT_DIR="$HOME/Documents"  # Use current directory if no argument is given
-
-notify-send "Git Auto Push" 
+PARENT_DIR="$HOME/Documents"
 
 for dir in "$PARENT_DIR"/*/; do
   if [ -d "$dir/.git" ]; then
@@ -15,13 +10,13 @@ for dir in "$PARENT_DIR"/*/; do
       git add .
       git commit -m "Auto-commit on $(date '+%Y-%m-%d %H:%M:%S')"
       if git push; then
-        notify-send "❌ $repo_name" "Push failed."
+        :
+      else
+        notify-send "❌  $repo_name" "Push failed."
       fi
     fi
 
     cd - >/dev/null || exit
   fi
 done
-
-notify-send "Git Auto Push" "✅ All done!"
 
