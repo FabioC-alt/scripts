@@ -1,0 +1,6 @@
+[Unit]
+Description="Sync with GitHub"
+
+
+[Service]
+ExecStart=/bin/bash ${HOME}/Documents/scripts/allScripts/gitPull.sh
