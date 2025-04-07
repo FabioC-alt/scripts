@@ -22,3 +22,4 @@ for dir in "$PARENT_DIR"/*/; do
   fi
 done
 
+notify-send "Git Sync" "✅ All repositories processed."
