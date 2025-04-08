@@ -3,7 +3,7 @@
 # Set the parent directory
 PARENT_DIR="$HOME/Documents"  # Use current directory if no argument is given
 
-notify-send "Git Auto Push" "🚀 Starting push for lowercase-named repos in: $PARENT_DIR"
+notify-send "Git Auto Push" " Starting push for lowercase-named repos in: $PARENT_DIR"
 
 for dir in "$PARENT_DIR"/*/; do
   repo_name=$(basename "$dir")
