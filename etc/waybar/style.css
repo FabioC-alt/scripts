@@ -2,7 +2,7 @@
 
 * {
     font-family: "Source Code VF", "Source Code Pro", monospace;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: normal;
 }
 
@@ -18,12 +18,12 @@
 /* Workspaces */
 #workspaces {
     margin-left: 2px;
-    padding: 2px;
+    padding: 3px;
 }
 
 #workspaces button {
-    padding: 1px 4px;
-    border-radius: 5px;
+    padding: 0px 5px;
+    border-radius:5px;
     background: @surface0;
     color: @text;
     border: none;

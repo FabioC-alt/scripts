@@ -93,7 +93,7 @@ fi
 if [ $cloning_repo = true ]; then
   echo "Cloning repositories..."
   cd /home/fabioc/Documents
-  git clone https://github.com/FabioC-alt/MasterThesis
+  git clone https://github.com/FabioC-alt/masterThesis
   # Add more repositories as needed
 else
   echo "Variable is not set to 1. Skipping repository cloning."
