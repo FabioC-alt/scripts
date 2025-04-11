@@ -1,4 +1,4 @@
-@import "frappe.css";
+@import "myStyle.css";
 
 * {
     font-family: "Source Code VF", "Source Code Pro", monospace;
@@ -24,13 +24,13 @@
 #workspaces button {
     padding: 0px 5px;
     border-radius:5px;
-    background: @surface0;
+    background: @surfa;
     color: @text;
     border: none;
 }
 
 #workspaces button.active {
-    background: @blue;
+    background: @mexican_pink;
     color: @text;
 }
 
