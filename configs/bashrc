@@ -22,3 +22,8 @@ alias b="btop --tty_on"
 # Programs
 
 eval "$(mcfly init bash)"
+
+# By Default open in Documents
+
+cd $HOME/Documents
+

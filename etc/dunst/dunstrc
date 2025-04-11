@@ -1,6 +1,6 @@
 [global]
     ### Display ###
-    frame_color = "#b4befe"
+    frame_color = "#df2877"
     separator_color= frame
 
     # Which monitor should the notifications be displayed on.
