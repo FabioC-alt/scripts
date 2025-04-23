@@ -16,6 +16,7 @@ for dir in "$PARENT_DIR"/*/; do
         if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Auto-commit on $(date '+%Y-%m-%d %H:%M:%S')"
+	    notify-send "Git Auto Push" "✔ $reponame repo processed."
 
             if ! git push; then
                 notify-send "❌ $repo_name" "Push failed"
@@ -26,6 +27,4 @@ for dir in "$PARENT_DIR"/*/; do
     fi
 done
 
-# Optional: success summary
-notify-send "Git Auto Push" "✔ All lowercase repos processed."
 

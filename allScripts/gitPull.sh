@@ -12,7 +12,7 @@ for dir in "$PARENT_DIR"/*; do
         cd "$dir" || continue
 
         git pull
+	notify-send  "$repo_name pulled"
     fi
 done
 
-notify-send  "All repos pulled"
