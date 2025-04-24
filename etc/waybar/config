@@ -13,9 +13,16 @@
     },
 
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{icon}",
         "all-outputs": true,
-	"show-special": true
+	"show-special": true,
+	"format-icons":{
+		"1":"",	
+		"2":"",
+		"3":"",
+		"10":"",	
+		"magic":""
+		}	
     },
 
     "clock": {
