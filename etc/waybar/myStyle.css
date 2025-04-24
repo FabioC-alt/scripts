@@ -4,3 +4,7 @@
 @define-color space_cadet #201C47;
 @define-color oxford_blue #0B0B28;
 
+@define-color outline_selected #DF2877;
+@define-color outline_unselected #3F2860;
+@define-color text_color #FFFFF;
+
