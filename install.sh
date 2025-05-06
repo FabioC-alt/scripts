@@ -34,6 +34,8 @@ packages='
     	libnotify
     	xdg-desktop-portal-hyprland 
     	hyprpaper
+	greetd
+	greetd-tuigreet
 '
 
 dev_mode_packages='
@@ -74,6 +76,9 @@ sudo timedatectl set-timezone Europe/Rome
 
 echo 'Setting bluetooth'
 sudo systemctl enable bluetooth
+
+echo 'Setting Greetd'
+sudo systemctl enable greetd
 
 if [ $docker_mode = true ]; then
 
