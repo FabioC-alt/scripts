@@ -33,9 +33,9 @@
     # screen width minus the width defined in within the geometry option.
     # geometry = "400x100-10+30"
 
-    width = 100
+    width = 200
 
-    height = 50
+    height = 80
 
 		origin = top-right
 
