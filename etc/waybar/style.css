@@ -30,7 +30,7 @@
 }
 
 #workspaces button.active {
-    background: @mexican_pink;
+    background: @outline_selected;
     color: @text;
 }
 
