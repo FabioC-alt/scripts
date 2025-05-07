@@ -78,6 +78,7 @@ echo 'Setting bluetooth'
 sudo systemctl enable bluetooth
 
 echo 'Setting Greetd'
+cp /home/$USER/Documents/scripts/boot/greetd /etc/greetd
 sudo systemctl enable greetd
 
 if [ $docker_mode = true ]; then
