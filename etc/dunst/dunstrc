@@ -1,6 +1,6 @@
 [global]
     ### Display ###
-    frame_color = "#df2877"
+    frame_color = "#ffffff"
     separator_color= frame
 
     # Which monitor should the notifications be displayed on.
@@ -33,9 +33,9 @@
     # screen width minus the width defined in within the geometry option.
     # geometry = "400x100-10+30"
 
-    width = 400
+    width = 100
 
-    height = 80
+    height = 50
 
 		origin = top-right
 
