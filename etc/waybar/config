@@ -85,10 +85,11 @@
     
     },
 
-    "custom/player":{
-	"exec": "echo ' 🎵 '$(playerctl metadata --format '{{artist}} - {{title}}')",
-	"interval": 1, 
-	"on-click": "playerctl play-pause"
+    "custom/player": {
+    "exec": "echo ' 🎵 '$(playerctl metadata --format '{{artist}} - {{title}}' | cut -c1-35)",
+    "interval": 1,
+    "on-click": "playerctl play-pause"
     }
+
 
 }
