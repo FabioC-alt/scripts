@@ -1,5 +1,6 @@
 #!/bin/bash
 
+yay_mode=true
 docker_mode=true
 cloning_repo=true
 
@@ -39,7 +40,12 @@ packages='
 '
 
 dev_mode_packages='
-    docker 
+	docker 
+'
+
+yay_packages='
+	wl-kbptr
+	wlrctl
 '
 
 echo 'Installing Packages'
@@ -102,8 +108,27 @@ if [ $cloning_repo = true ]; then
   git clone https://github.com/FabioC-alt/masterThesis
   # Add more repositories as needed
 else
-  echo "Variable is not set to 1. Skipping repository cloning."
+  echo "Variable is not set to 1. Skipping"
 fi
+
+if [ $yay_mode = true ]; then
+	echo "Installing yay..."
+       	cd /home/$USER/Documents
+	sudo pacman -S needed git base-devel
+	git clone https://aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si
+
+	echo "Installing yay packages"
+	yay -S $yay_packages 
+
+
+else 	
+	echo	"Not installing yay. Skipping"
+fi
+
+
+
 
 echo 'Config tldr'
 tldr --update
