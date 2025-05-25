@@ -13,3 +13,7 @@ git clone https://github.com/philj56/tofi.git
 cd tofi
 
 meson build && ninja -C build install
+
+cd ~/Documents
+
+rm -rf tofi/
