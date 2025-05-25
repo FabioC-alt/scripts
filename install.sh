@@ -47,6 +47,8 @@ yay_packages='
 	wl-kbptr
 	wlrctl
 '
+echo 'Installing Tofi'
+./allScripts/tofiInstallationScript.sh
 
 echo 'Installing Packages'
 sudo pacman -S $packages --noconfirm

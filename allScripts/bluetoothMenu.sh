@@ -6,12 +6,6 @@ if ! command -v bluetoothctl &> /dev/null; then
     exit 1
 fi
 
-POSITION=0
-YOFF=0
-XOFF=0
-WIDTH=600
-LINES=12
-
 # Get Bluetooth status
 BT_STATE=$(bluetoothctl show | grep "Powered" | awk '{print $2}')
 
@@ -21,15 +15,13 @@ elif [ "$BT_STATE" = "no" ]; then
     TOGGLE="Turn Bluetooth On"
 fi
 
-# List available devices
-DEVICES=$(bluetoothctl devices | awk '{print $2" "$3" "$4" "$5" "$6}')
+# List available devices (MAC + Name)
+DEVICES=$(bluetoothctl devices | cut -d ' ' -f 2-)
 
-CHENTRY=$(echo -e "$TOGGLE\nRescan\n$DEVICES" | wofi -i -d \
-    --prompt "Bluetooth Devices: " \
-    --lines "$LINES" \
-    --width "$WIDTH" \
-    --location "$POSITION")
+# Show menu using tofi
+CHENTRY=$(echo -e "$TOGGLE\nRescan\n$DEVICES" | tofi -c /home/fabioc/Documents/scripts/etc/tofi/tofi.conf --prompt-text "Bluetooth Devices:")
 
+# Handle selection
 if [ "$CHENTRY" = "Turn Bluetooth Off" ]; then
     bluetoothctl power off
     exit 0
@@ -45,7 +37,7 @@ elif [ "$CHENTRY" = "Rescan" ]; then
     exec "$0"
     exit 0
 
-else
+elif [ -n "$CHENTRY" ]; then
     DEVICE_MAC=$(echo "$CHENTRY" | awk '{print $1}')
     if bluetoothctl info "$DEVICE_MAC" | grep -q "Connected: yes"; then
         bluetoothctl disconnect "$DEVICE_MAC"
@@ -53,3 +45,4 @@ else
         bluetoothctl connect "$DEVICE_MAC"
     fi
 fi
+
