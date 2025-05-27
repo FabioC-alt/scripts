@@ -37,7 +37,9 @@ packages='
     	hyprpaper
 	greetd
 	greetd-tuigreet
-'
+	noto-fonts-emoji
+	noto-fonts-cjk
+	'
 
 dev_mode_packages='
 	docker 
