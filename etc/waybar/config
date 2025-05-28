@@ -11,9 +11,6 @@
     "modules-left": [
       "sway/workspaces",
     "hyprland/workspaces",
-    "custom/nxtcdd",
-    "custom/githubsync",
-    "mpris",
     ],
 
     "modules-center": [
@@ -24,7 +21,6 @@
 
     "modules-right": [
       "pulseaudio",
-    "custom/vpn",
     "network",
     "battery",
     "tray"
