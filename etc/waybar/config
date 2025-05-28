@@ -1,89 +1,213 @@
 {
-    "layer": "top",
+  "layer": "bottom",
     "position": "top",
-    "modules-left": ["hyprland/workspaces","custom/player"],
-    "modules-center": ["clock","custom/weather"],
-    "modules-right": ["cpu","pulseaudio","bluetooth", "network","battery" ],
+    "margin-top": 0,
+    "margin-left": 0,
+    "mode": "dock",
+    "margin-right": 0,
+    "height": 10,
+    "spacing": 0,
 
+    "modules-left": [
+      "sway/workspaces",
+    "hyprland/workspaces",
+    "custom/nxtcdd",
+    "custom/githubsync",
+    "mpris",
+    ],
 
-    "pulseaudio":{
-	"format": "{volume}% {icon}     ",
-	"format-muted": " ",
-	"format-icons":[" "],
-	"scroll-step":5
+    "modules-center": [
+    "custom/caffeine",
+      "clock",
+    "custom/weather"
+    ],
+
+    "modules-right": [
+      "pulseaudio",
+    "custom/vpn",
+    "network",
+    "battery",
+    "tray"
+    ],
+
+    "sway/workspaces": {
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+        "active": "A",
+        "urgent": "U"
+      }
+
+    },
+    "hyprland/workspaces": {
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+        "active": "A",
+        "urgent": "U"
+      }
+
     },
 
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "all-outputs": true,
-	"show-special": true
+    "tray": {
+      "spacing": 10,
+      "icon-size": 12
     },
 
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M}"
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "format-alt": "   {:%a, %d %b %Y} ",
+      "format": "   {:%H:%M %p} "
+    },
+
+    "backlight/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal",
+      "device": "intel_backlight"
+    },
+    "network": {
+      "format-wifi": "{icon} {essid}",
+      "format-disconnected": "Disconnected ⚠ ",
+      "format-icons": [
+        "󰤯 ",
+      "󰤟 ",
+      "󰤢 ",
+      "󰤥 ",
+      "󰤨 "
+      ],
+      "tooltip-format-disconnected": "Disconnected",
+      "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "format-ethernet": "{ifname}",
+      "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "nospacing": 1,
+      "interval": 5
+    },
+
+    "pulseaudio": {
+      "format": "{icon}{volume}%",
+      "format-bluetooth": "󰂰 {volume}%",
+      "nospacing": 1,
+      "tooltip-format": "Volume : {volume}%",
+      "format-muted": "󰝟 ",
+      "format-icons": {
+        "headphone": " ",
+        "default": [
+          "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
+        ]
+      },
+      "on-click": "pavucontrol",
+      "on-click-right": "pamixer -t",
+      "scroll-step": 1
     },
 
     "battery": {
-        "format": "{capacity}% {icon} ",
-        "format-charging": "⚡ {capacity}% ",
-        "format-full": "  {capacity}%  ",
-        "format-icons": ["", "", "", "", ""]
+      "format": "{icon} {capacity}%",
+      "format-icons": {
+        "charging": [
+          "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+        ],
+        "default": [
+          "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+        ]
+      },
+      "interval": 5,
+      "states": {
+        "warning": 25,
+        "critical": 10
+      },
+      "tooltip": true
     },
 
-    "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ipaddr}/{cidr} ",
-        "format-disconnected": "⚠ Disconnected"
+    "mpris": {
+      "format": "{player_icon}  {dynamic}",
+      "format-len": 1,
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+        "firefox": "󰈹",
+        "mpv": "",
+        "default": "󰫔"
+      },
+      "dynamic-order": [
+        "title"
+      ],
+      "interval": 1,
+      "status-icons": {
+        "paused": "⏸"
+      },
+      "ignored-players": [
+      ]
     },
-
-    "cpu": {
-        "format": "  {usage}% "
+    "custom/caffeine": {
+      "format": "{}",
+      "tooltip": true,
+      "exec": "~/.local/bin/caffeine.sh check_status",
+      "on-click":"~/.local/bin/caffeine.sh toggle",
+      "return-type": "json"
     },
-
-    "memory": {
-        "format": " {used} MiB "
+    "custom/githubsync": {
+      "tooltip-format":"pull github repositories",
+      "format": "  ",
+      "on-click":"~/.local/bin/git_utils.sh sync",
     },
-
-    
+    "custom/nxtcdd": {
+      "tooltip-format":"run sync with nxtcdd script",
+      "format": "  ",
+      "on-click":"~/.local/bin/nxtcdd.sh restart_all",
+    },
+    "custom/vpn": {
+      "format": "{}",
+      "tooltip": true,
+      "exec": "~/.local/bin/vpn.sh check_connection",
+      "on-click":"~/.local/bin/vpn.sh toggle",
+      "return-type": "json"
+    },
     "custom/weather": {
-	"format": "  {}",
-        "interval": 600,
-        "format": "{}",
-        "exec": "curl -s 'wttr.in/?format=3'"
+      "format": "{}",
+      "tooltip": true,
+      "interval": 600,
+      "exec": "~/.local/bin/weather.sh get_weather",
+      "return-type": "json"
     },
-
-    "bluetooth": {
-    	
-	"format": " {status}",
-	"format-disabled": " bluetooth is off",
-	"format-connected": " {device_alias}" 
-    },
-
-    "clock": {
-	"format": "{:%H:%M} ",	
-	"format-alt": "{:%A, %B %d, %Y (%R)} ",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
-    
-    },
-
-    "custom/player": {
-    "exec": "echo ' 🎵 '$(playerctl metadata --format '{{artist}} - {{title}}')",
-    "interval": 1,
-    "on-click": "playerctl play-pause"
-    }
-
 
 }

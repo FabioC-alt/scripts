@@ -1,73 +1,78 @@
-@import "myStyle.css";
+@import "mocha.css";
 
 * {
-    font-family: "Source Code VF", "Source Code Pro", monospace;
-    font-size: 9px;
-    font-weight: normal;
+  font-family: Material Design Icons, JetBrainsMono Nerd Font;
+  font-size: 9px;
+  font-weight: bolder;
+  background-color: @background;
+  color: @foreground;
 }
 
-
-
-#waybar {
-    background: @base;
-    color: @text;
-    border-bottom: 1px solid @blue;
+#workspaces,
+#custom-ibus,
+#custom-lock,
+#clock,
+#backlight,
+#idle_inhibitor,
+#mode,
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#custom-launcher,
+#custom-powermenu,
+#tray,
+#custom-vpn,
+#network,
+#custom-pacman,
+#mpd,
+#mpris{
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
+window#waybar.hidden {
+  opacity: 0.1;
+}
 
-/* Workspaces */
-#workspaces {
-    margin-left: 2px;
-    padding: 3px;
+@keyframes button_activate {
+  from {
+    opacity: .3
+  }
+
+  to {
+    opacity: 1.;
+  }
 }
 
 #workspaces button {
-    padding: 0px 5px;
-    border-radius:5px;
-    background: @surfa;
-    color: @text;
-    border: none;
+        min-width: 0;
+        min-height: 0;
+  border: none;
+  color: @color2;
 }
 
 #workspaces button.active {
-    background: @outline_selected;
-    color: @text;
+  color: @color3;
 }
 
-/* Modules */
-#clock, #cpu, #memory, #battery, #network {
-    padding: 0 5px;
-    color: @subtext1;
+#workspaces button.urgent {
+  color: @color7;
 }
 
-/* Battery status */
-#battery {
-    color: @text;
+#workspaces button.persistent {
+  color: @color8;
 }
 
-#battery.charging {
-    color: @green;
+#tray{
+        min-width: 0;
+        min-height: 0;
 }
 
-#battery.warning {
-    color: @yellow;
+#tray>.passive {
+  -gtk-icon-effect: dim;
 }
 
-#battery.critical {
-    color: @red;
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
 }
-
-/* Network */
-#network.disconnected {
-    color: @maroon;
-}
-
-/* Apply teal color */
-#cpu, #memory {
-    color: @teal;
-}
-
-#custom-player{
-    color: @teal;
-}
-
