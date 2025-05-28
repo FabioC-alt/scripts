@@ -3,12 +3,13 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces","custom/player"],
     "modules-center": ["clock","custom/weather"],
-    "modules-right": ["pulseaudio","bluetooth", "cpu", "memory", "battery", "network"],
+    "modules-right": ["cpu","pulseaudio","bluetooth", "network","battery" ],
+
 
     "pulseaudio":{
 	"format": "{volume}% {icon}     ",
 	"format-muted": " ",
-	"format-icons":[""," "," "],
+	"format-icons":[" "],
 	"scroll-step":5
     },
 
@@ -25,18 +26,18 @@
     "battery": {
         "format": "{capacity}% {icon} ",
         "format-charging": "⚡ {capacity}% ",
-        "format-full": "🔋 {capacity}%  ",
+        "format-full": "  {capacity}%  ",
         "format-icons": ["", "", "", "", ""]
     },
 
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%) ",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": " {ipaddr}/{cidr} ",
         "format-disconnected": "⚠ Disconnected"
     },
 
     "cpu": {
-        "format": " {usage}% "
+        "format": "  {usage}% "
     },
 
     "memory": {
