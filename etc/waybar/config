@@ -11,6 +11,7 @@
     "modules-left": [
       "sway/workspaces",
     "hyprland/workspaces",
+    "custom/player",
     ],
 
     "modules-center": [
@@ -205,5 +206,12 @@
       "exec": "~/.local/bin/weather.sh get_weather",
       "return-type": "json"
     },
+
+    "custom/player": {
+    "exec": "echo ' ' $(playerctl metadata --format '{{title}} - {{artist}}')",
+    "interval": 1,
+    "on-click": "playerctl play-pause"
+    }
+
 
 }
