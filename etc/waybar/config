@@ -42,8 +42,8 @@
         "9": "9",
         "10": "10",
         "active": "A",
-        "urgent": "U"
-      }
+        "urgent": "U"  
+    }
 
     },
     "hyprland/workspaces": {
@@ -62,7 +62,8 @@
         "10": "10",
         "active": "A",
         "urgent": "U"
-      }
+      },
+	"show-special": true,
 
     },
 
