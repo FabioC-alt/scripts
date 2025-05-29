@@ -39,6 +39,7 @@ packages='
 	greetd-tuigreet
 	noto-fonts-emoji
 	noto-fonts-cjk
+	ttf-nerd-fonts-symbols
 	'
 
 dev_mode_packages='
