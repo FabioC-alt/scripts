@@ -6,136 +6,144 @@ cloning_repo=true
 
 # Lista dei pacchetti
 packages='
-	bash-completion
-    	github-cli
-    	ttf-font-awesome
-    	stow
-    	wl-clipboard
-    	grim
-	slurp
-    	hyprlock
-    	hyprland
-    	hypridle
-    	waybar
-    	nano
-    	bluez
-    	bluez-utils
-    	blueman
-    	mcfly
-    	kitty
-    	firefox
-    	nautilus 
-    	wofi
-    	dunst
-    	tealdeer
-    	zellij
-    	lazygit
-    	brightnessctl
-    	ranger
-    	libnotify
-    	xdg-desktop-portal-hyprland 
-    	hyprpaper
-	greetd
-	greetd-tuigreet
-	noto-fonts-emoji
-	noto-fonts-cjk
-	ttf-nerd-fonts-symbols
-	'
+    bash-completion
+    github-cli
+    ttf-font-awesome
+    stow
+    wl-clipboard
+    grim
+    slurp
+    hyprlock
+    hyprland
+    hypridle
+    waybar
+    nano
+    bluez
+    bluez-utils
+    blueman
+    mcfly
+    kitty
+    firefox
+    nautilus 
+    wofi
+    dunst
+    tealdeer
+    zellij
+    lazygit
+    brightnessctl
+    ranger
+    libnotify
+    xdg-desktop-portal-hyprland 
+    hyprpaper
+    greetd
+    greetd-tuigreet
+    noto-fonts-emoji
+    noto-fonts-cjk
+    ttf-nerd-fonts-symbols
+'
 
 dev_mode_packages='
-	docker 
+    docker
 '
 
 yay_packages='
-	wl-kbptr
-	wlrctl
+    wl-kbptr
+    wlrctl
 '
+
+# === Tofi Installation ===
 echo 'Installing Tofi'
 ./allScripts/tofiInstallationScript.sh
 
-echo 'Installing Packages'
+# === Custom Script Setup ===
+echo 'Setting up cpcl script'
+mkdir -p ~/.local/bin
+cp allScripts/cpcl.sh ~/.local/bin/cpcl
+chmod +x ~/.local/bin/cpcl
+
+# === Pacman Packages ===
+echo 'Installing packages via pacman...'
+sudo pacman -Syu --noconfirm
 sudo pacman -S $packages --noconfirm
-sudo pacman -Syu
 
-
+# === Stow Config ===
 echo 'Stowing Folders'
-stow -t $HOME/.config  etc 
+stow -t $HOME/.config etc 
 
+# === Bashrc Setup ===
 echo 'Configuring bashrc'
 cp configs/bashrc ~/.bashrc
 source ~/.bashrc
 
+# === Git Config ===
 echo 'Configuring Github Credentials'
 git config --global user.email "fabiociraci41@gmail.com"
 git config --global user.name "FabioC-alt"
 
+# === Systemd Timers ===
 echo 'Configuring Systemd Timers'
-sudo cp systemd/* /etc/systemd/user/
+mkdir -p ~/.config/systemd/user
+cp systemd/* ~/.config/systemd/user/
+systemctl --user daemon-reexec
+systemctl --user daemon-reload
+systemctl --user enable --now gitPull.timer gitSync.timer
 
-echo 'Configuring Auto-git'
-systemctl --user enable gitPull.timer
-systemctl --user enable gitSync.timer
+# === NetworkManager ===
+echo 'Configuring Network Manager'
+sudo systemctl enable --now NetworkManager
 
-systemctl --user start gitPull.timer
-systemctl --user start gitSync.timer
-
-echo 'Configuring Network manager'
-sudo systemctl enable NetworkManager
-
-echo 'Setting timedatectl'
+# === Timezone ===
+echo 'Setting timezone to Europe/Rome'
 sudo timedatectl set-timezone Europe/Rome
 
-echo 'Setting bluetooth'
-sudo systemctl enable bluetooth
+# === Bluetooth ===
+echo 'Enabling Bluetooth'
+sudo systemctl enable --now bluetooth
 
-echo 'Setting Greetd'
-cp /home/$USER/Documents/scripts/boot/greetd /etc/greetd
+# === Greetd ===
+echo 'Setting up Greetd'
+sudo cp -r /home/$USER/Documents/scripts/boot/greetd /etc/greetd
 sudo systemctl enable greetd
 
-if [ $docker_mode = true ]; then
+# === Docker ===
+if [ "$docker_mode" = true ]; then
+    echo "Installing Docker"
+    sudo pacman -S $dev_mode_packages --noconfirm
+    curl -sS https://webinstall.dev/k9s | bash
 
-   echo "Installing Docker"
-   sudo pacman -S $dev_mode_packages --noconfirm
-   curl -sS https://webinstall.dev/k9s | bash
-   # Adding Docker to user group
-   sudo groupadd docker
-   sudo usermod -aG docker $USER
-
+    sudo groupadd docker 2>/dev/null || true
+    sudo usermod -aG docker $USER
 else
-   echo "Docker mode off"
-
+    echo "Docker mode off"
 fi
 
-# Check if the variable is set to 1
-if [ $cloning_repo = true ]; then
-  echo "Cloning repositories..."
-  cd /home/fabioc/Documents
-  git clone https://github.com/FabioC-alt/masterThesis
-  # Add more repositories as needed
+# === Clone Repos ===
+if [ "$cloning_repo" = true ]; then
+    echo "Cloning repositories..."
+    cd ~/Documents
+    git clone https://github.com/FabioC-alt/masterThesis
 else
-  echo "Variable is not set to 1. Skipping"
+    echo "Repo cloning disabled"
 fi
 
-if [ $yay_mode = true ]; then
-	echo "Installing yay..."
-       	cd /home/$USER/Documents
-	sudo pacman -S needed git base-devel
-	git clone https://aur.archlinux.org/yay.git
-	cd yay
-	makepkg -si
+# === yay ===
+if [ "$yay_mode" = true ]; then
+    echo "Installing yay..."
+    cd ~/Documents
+    sudo pacman -S --needed git base-devel --noconfirm
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
 
-	echo "Installing yay packages"
-	yay -S $yay_packages 
-
-
-else 	
-	echo	"Not installing yay. Skipping"
+    echo "Installing yay packages..."
+    yay -S $yay_packages --noconfirm
+else
+    echo "yay not installed, skipping AUR packages"
 fi
 
-
-
-
-echo 'Config tldr'
+# === TLDR ===
+echo 'Updating tldr cache'
 tldr --update
 
-echo "Successfully Installed all components, reboot to start"
+echo "✅ Successfully installed all components! Reboot to apply all changes."
+
