@@ -18,6 +18,7 @@ alias z="zellij"
 alias lz="lazygit"
 alias ld="lazydocker"
 alias b="btop --tty_on"
+alias vpn="/home/fabioc/Documents/scripts/allScripts/vpn.sh"
 
 # Programs
 
