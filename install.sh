@@ -75,6 +75,10 @@ echo 'Configuring bashrc'
 cp configs/bashrc ~/.bashrc
 source ~/.bashrc
 
+# === Vim Setup ===
+echo 'Configuring vim'
+cp configs/vimrc ~/.vimrc
+
 # === Git Config ===
 echo 'Configuring Github Credentials'
 git config --global user.email "fabiociraci41@gmail.com"
